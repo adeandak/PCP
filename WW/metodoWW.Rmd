@@ -7,7 +7,12 @@ output:
     df_print: paged
 ---
 # Dynamic Lot Sizing Models with Walter-Within Algorithm
-A continuación se encuentra el código realizado para encontrar los inventarios óptimos siguiendo el algoritmo de Walter-Within:
+A continuación se encuentra el código realizado de la función que encuentra los inventarios óptimos basado en el algoritmo de Walter-Within.
+Esta función recibe datos de la demanda, holding costs, costos de producción y costos de set-up, en seguida calcula una matriz de holding costs para hacer más fácil el calculo de los costos posteriormente. Después calcula los costos por cada periodo dependiendo de en que periodo se hace el pedido y guarda los valores en una matriz, además de calcular la cantidad óptima a pedir en cada periodo y el costo mínimo de esa política. Esta parte esta basada en los 3 métodods indenpendientes de cada miembro del equipo, se revisaron los tres y se hizo uno nuevo que engloba todo de la manera que más eficiente creímos, es decir de un método iterativo, un método medio automatizado y una función implementamos un método que calcula los costos de la política dentro de una fucnión. 
+
+Para finalizar se hace el análisis de los resultados y se hace una matriz que desglosa los resultados de demanda, cantidad a pedir, inventarios y costos.
+
+La función implementada se muestra a continuación: 
 ```{r}
 WW<-function(lambda, h, c=rep(0,length(lambda)), K){
   #inicio de la funcion
@@ -68,7 +73,9 @@ WW<-function(lambda, h, c=rep(0,length(lambda)), K){
 }
 ```
 
-Una vez que se implementó el algoritmo, se probó con los ejercicios analizados en clase:
+Una vez que se implementó el algoritmo, se probó con los ejercicios analizados en clase para saber si los resultados eran correctos y la función era adecuada, además se probó con el Quiz 4 también para asegurarnos que la matriz de costos y el análisis son correctos: 
+
+1. Ejercicios en clase
 ```{r}
 lambda = c(60,100,10,200,120,15)
 h = c(0.8,0.8,0.8,1.8,2,2)
@@ -92,4 +99,6 @@ h2<-rep(0.5,5)
 WW2<-WW(lambda=lambda2, h=h2, K=K2)
 WW2
 ```
+
+2. Ejercicios del Quiz 4
 
