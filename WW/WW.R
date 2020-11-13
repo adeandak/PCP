@@ -1,6 +1,23 @@
 #@authors: adeandak, sgonzalezab, jhernandezott
 #
-#
+#' @title Wagner-Whitin algorithm
+#'
+#' @description  \code{WW} implements the Wagner-Whitin algorithm. Considering time-varying demand, costs, holding costs and setup cost, 
+#'the algorithm builds production plans that minimizes the total setup and holding costs
+#'in a finite horizon of time, assuming zero starting inventory
+#' and no backlogging
+#'
+#' @param lambda  A numeric vector containing the demand per unit time
+#' @param c  A numeric vector for the set-up cost per unit and period
+#' @param h  A numeric vector for the holding cost per unit and period
+#' @param K  A numeric vector for the costs per unit
+#'
+#' @return  cost The total cost of the optimal plan
+#' @return  orders The order schedule of the optimal plan
+#' @return  costMatrix The individual cost of all possible ordering combinations
+#' @return  auxMatrix Breakdown of the total cost of the optimal plan by period and cost type
+#' @return  analysis String indicating optimal ordering policy
+#' @return  petersonSilver Value of the Peterson-Silver´s Rule.
 
 WW=function(lambda = c(0,0,0,0,0,0),
             h = c(0,0,0,0,0,0),
