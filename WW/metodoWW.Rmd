@@ -73,7 +73,7 @@ WW<-function(lambda, h, c=rep(0,length(lambda)), K){
 }
 ```
 
-Una vez que se implementó el algoritmo, se probó con los ejercicios analizados en clase para saber si los resultados eran correctos y la función era adecuada, además se probó con el Quiz 4 también para asegurarnos que la matriz de costos y el análisis son correctos: 
+Una vez que se implementó el algoritmo, se probó con los ejercicios analizados en clase para saber si los resultados eran correctos y la función era adecuada: 
 
 1. Ejercicios en clase
 ```{r}
@@ -100,5 +100,5 @@ WW2<-WW(lambda=lambda2, h=h2, K=K2)
 WW2
 ```
 
-2. Ejercicios del Quiz 4
+
 
